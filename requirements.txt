@@ -1,0 +1,12 @@
+
+# Simple requirements.txt
+# Just the basic packages you need
+
+fastapi==0.104.1
+uvicorn==0.24.0
+sqlalchemy==1.4.46
+pydantic==1.10.12
+firebase-admin==6.2.0
+
+# That's it! Install with: pip install -r requirements.txt
+requests~=2.32.5
