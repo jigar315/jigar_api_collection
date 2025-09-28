@@ -18,3 +18,5 @@ app.include_router(
     prefix="/users",
     tags=["Users"]
 )
+
+handler = app

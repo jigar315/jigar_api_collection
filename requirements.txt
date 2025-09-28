@@ -7,6 +7,4 @@ uvicorn==0.24.0
 sqlalchemy==1.4.46
 pydantic==1.10.12
 firebase-admin==6.2.0
-
-# That's it! Install with: pip install -r requirements.txt
-requests~=2.32.5
+requests==2.32.5
