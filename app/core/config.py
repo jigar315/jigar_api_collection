@@ -4,8 +4,8 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Professional FastAPI User Management"
     VERSION: str = "1.0.0"
-    DATABASE_URL: str = "sqlite:///./users.db"
-    AUTH_DATABASE_URL: str = "sqlite:///./auth_users.db"
+    DATABASE_URL: str = "postgresql://neondb_owner:npg_X9Qoyv6ZkauE@ep-flat-fire-admw4x5q-pooler.c-2.us-east-1.aws" \
+                        ".neon.tech/neondb?sslmode=require&channel_binding=require"
     USER_TABLE_NAME: str = "user"
     SECRET_KEY: str = "your-secret-key-here"
     ALGORITHM: str = "HS256"
