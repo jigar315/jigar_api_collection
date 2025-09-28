@@ -8,5 +8,5 @@ sqlalchemy==1.4.46
 pydantic==1.10.12
 firebase-admin==6.2.0
 requests==2.32.5
-psycopg2-binary==2.9.9
+asyncpg==0.29.0
 
