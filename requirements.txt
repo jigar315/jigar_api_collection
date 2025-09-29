@@ -1,6 +1,4 @@
 
-# Simple requirements.txt
-# Just the basic packages you need
 
 fastapi==0.104.1
 uvicorn==0.24.0
