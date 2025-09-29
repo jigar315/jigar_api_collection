@@ -15,4 +15,12 @@ app.include_router(
     tags=["Users"]
 )
 
-handler = app
+
+@app.get("/")
+def root():
+    return {"message": "JIGAR APIs is running!"}
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}

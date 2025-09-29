@@ -6,9 +6,9 @@ from app.core.config import settings
 engine = create_engine(
     settings.DATABASE_URL,
     pool_pre_ping=True,
-    pool_size=1,
-    max_overflow=0,
-    echo=False
+    pool_size=5,
+    max_overflow=10,
+    pool_recycle=3600
 )
 
 AuthSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
