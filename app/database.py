@@ -6,13 +6,9 @@ from app.core.config import settings
 engine = create_engine(
     settings.DATABASE_URL,
     pool_pre_ping=True,
-    pool_recycle=300,
-    pool_size=5,
+    pool_size=1,
     max_overflow=0,
-    connect_args={
-        "connect_timeout": 10,
-        "application_name": "jigar_api"
-    }
+    echo=False
 )
 
 AuthSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -22,4 +18,7 @@ Base = declarative_base()
 
 def get_auth_database():
     db = AuthSessionLocal()
-    return db
+    try:
+        yield db
+    finally:
+        db.close()
