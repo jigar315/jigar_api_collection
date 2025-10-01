@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, BOOLEAN
+from sqlalchemy import Column, Integer, String, DateTime, Boolean
 from sqlalchemy.sql import func
 from app.database import Base
 from app.core.config import settings
@@ -11,4 +11,4 @@ class AuthUser(Base):
     email = Column(String, unique=True, index=True)
     firebaseUserId = Column(String, unique=True, index=True)
     createdAt = Column(DateTime, default=func.now())
-    isDeleted = Column(BOOLEAN, default=False)
+    isDeleted = Column(Boolean, default=False)

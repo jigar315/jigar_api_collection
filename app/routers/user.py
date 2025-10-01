@@ -9,3 +9,8 @@ appRouter = APIRouter()
 @appRouter.get("/getAllUsers", response_model=List[AuthResponse])
 def get_all_users():
     return user_service.get_all_users()
+
+
+@appRouter.get("/getUserById", response_model=AuthResponse)
+def get_user_by_id(userId: str):
+    return user_service.get_user_by_id(userId)
