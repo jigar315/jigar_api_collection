@@ -1,7 +1,14 @@
 from fastapi import FastAPI
 from app.routers import auth, user
 
-app = FastAPI(title="JIGAR APIs")
+app = FastAPI(
+    title="JIGAR APIs",
+    description="Collection of authentication and user APIs",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
 
 app.include_router(
     auth.router,
@@ -18,7 +25,7 @@ app.include_router(
 
 @app.get("/")
 def root():
-    return {"message": "JIGAR APIs is running!"}
+    return {"message": "All APIs is running!"}
 
 
 @app.get("/health")
