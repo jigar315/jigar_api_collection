@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from app.routers import auth, user
 
 app = FastAPI(
@@ -10,22 +11,13 @@ app = FastAPI(
     openapi_url="/openapi.json"
 )
 
-app.include_router(
-    auth.router,
-    prefix="/auth",
-    tags=["Authentication"]
-)
-
-app.include_router(
-    user.appRouter,
-    prefix="/users",
-    tags=["Users"]
-)
+app.include_router(auth.router, prefix="/auth", tags=["Authentication"])
+app.include_router(user.appRouter, prefix="/users", tags=["Users"])
 
 
 @app.get("/")
 def root():
-    return {"message": "All APIs is running!"}
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health")
