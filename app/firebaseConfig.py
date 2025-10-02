@@ -12,8 +12,11 @@ def initialize_firebase():
     try:
         firebase_admin.get_app()
     except ValueError:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        cred_path = os.path.join(base_dir, "fast_api_firebase.json")
+        cred_path = "/etc/secrets/fast_api_firebase.json"
+        if not os.path.exists(cred_path):
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            cred_path = os.path.join(base_dir, "fast_api_firebase.json")
+
         cred = credentials.Certificate(cred_path)
         firebase_admin.initialize_app(cred)
 
