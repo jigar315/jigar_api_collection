@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from app.routers import auth, user
+from app.firebaseConfig import initialize_firebase
+
+
+initialize_firebase()
 
 app = FastAPI(
     title="JIGAR APIs",
@@ -18,8 +22,3 @@ app.include_router(user.appRouter, prefix="/users", tags=["Users"])
 @app.get("/")
 def root():
     return RedirectResponse(url="/docs")
-
-
-@app.get("/health")
-def health_check():
-    return {"status": "healthy"}

@@ -1,10 +1,17 @@
-from pydantic import BaseModel, ConfigDict
+from typing import Optional
+from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime
 
 
-class SignupAndSignInRequest(BaseModel):
-    email: str
-    password: str
+class SignupRequest(BaseModel):
+    email: str = Field(..., example="abcd@gmail.com")
+    password: str = Field(..., example="12345678")
+    name: str = Field(..., example="Xyz")
+
+
+class SigninRequest(BaseModel):
+    email: str = Field(..., example="abcd@gmail.com")
+    password: str = Field(..., example="12345678")
 
 
 class AuthResponse(BaseModel):
@@ -12,6 +19,7 @@ class AuthResponse(BaseModel):
 
     id: int
     email: str
+    name: Optional[str] = None
     firebaseUserId: str
     createdAt: datetime
-    isDeleted: bool
+    idToken: Optional[str] = None

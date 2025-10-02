@@ -9,6 +9,7 @@ class AuthUser(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
+    name = Column(String, unique=True, index=True)
     firebaseUserId = Column(String, unique=True, index=True)
     createdAt = Column(DateTime, default=func.now())
     isDeleted = Column(Boolean, default=False)
